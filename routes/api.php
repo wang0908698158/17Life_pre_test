@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::prefix('insertData')->group(function () {
+    Route::post('posts', 'App\Http\Controllers\InsertController@posts');
+    Route::post('comments', 'App\Http\Controllers\InsertController@comments');
 });
